@@ -1,0 +1,26 @@
+.navbar > div {
+  border: 1px solid red;
+  justify-content: space-evenly;
+  width: 50%;
+  display: flex;
+  margin: auto;
+  margin-top: 25px;
+}
+
+button {
+  background-color: white;
+  width: 80px;
+  color: grey;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-decoration: none;
+}
+Link {
+  text-decoration: none;
+  color: black;
+}
+p {
+  margin: 0px;
+  /* border: 1px solid black; */
+}
