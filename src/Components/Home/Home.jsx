@@ -59,24 +59,6 @@ export const Home = () => {
           localStorage.setItem("wzrCurUser", JSON.stringify(res.data.result));
         })
         .catch((err) => console.log(err));
-
-      //         fetch(`http://localhost:5656/users`,
-      // {
-      //     headers: {
-      //       'Accept': 'application/json',
-      //       'Content-Type': 'application/json'
-      //     },
-      //     method: "POST",
-      //     body: JSON.stringify({
-      //       email: userData.profileObj.email,
-      //       firstName: userData.profileObj.givenName,
-      //       lastName: userData.profileObj.familyName,
-      //       googleId: userData.profileObj.googleId,
-      //       imageUrl: userData.profileObj.imageUrl,
-      //     })
-      // })
-      // .then(function(res){ console.log(res); localStorage.setItem("wzrCurUser", JSON.stringify(res.data.result)); })
-      // .catch(function(err){ console.log("err", err) })
     }
   };
 

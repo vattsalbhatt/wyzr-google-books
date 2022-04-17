@@ -1,0 +1,15 @@
+ # To give our build server access, we can simply run "npm install"
+  pre_build:
+    commands:
+      - npm install
+  # Now we want to actually build our React app
+  build:
+   commands:
+      - npm run build
+# Artifacts will specify what files will be uploaded to s3
+# This will include all files within the "build" folder
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: build
