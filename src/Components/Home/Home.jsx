@@ -47,13 +47,16 @@ export const Home = () => {
 
     if (userData) {
       axios
-        .post(`https://wyzr-books.herokuapp.com/users`, {
-          email: userData.profileObj.email,
-          firstName: userData.profileObj.givenName,
-          lastName: userData.profileObj.familyName,
-          googleId: userData.profileObj.googleId,
-          imageUrl: userData.profileObj.imageUrl,
-        })
+        .post(
+          `http://wyzrgooglecrud-env-1.eba-jhvyc2cu.ap-south-1.elasticbeanstalk.com/users`,
+          {
+            email: userData.profileObj.email,
+            firstName: userData.profileObj.givenName,
+            lastName: userData.profileObj.familyName,
+            googleId: userData.profileObj.googleId,
+            imageUrl: userData.profileObj.imageUrl,
+          }
+        )
         .then((res) => {
           console.log("response POST", res.data);
           localStorage.setItem("wzrCurUser", JSON.stringify(res.data.result));

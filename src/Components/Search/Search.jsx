@@ -61,9 +61,12 @@ export const Search = () => {
 
     if (userData) {
       axios
-        .post(`https://wyzr-books.herokuapp.com/searchterms`, {
-          searchKey: key,
-        })
+        .post(
+          `http://wyzrgooglecrud-env-1.eba-jhvyc2cu.ap-south-1.elasticbeanstalk.com/searchterms`,
+          {
+            searchKey: key,
+          }
+        )
         .then((res) => {
           // console.log(res.data);
           // keyId = res.data.result._id;
