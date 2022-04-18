@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 
 export const Navbar = () => {
+  //finding name and displaying the name when the user is logged in
   const [user, setUser] = useState(false);
   const [userName, setUserName] = useState("Please Login!");
   const [login, setLogin] = useState(null);
 
-  const [userInfo, setUserInfo] = useState({});
+  // const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
-    checkLogin();
+    checkLogin(); //checking if logged in or not
   }, []);
 
   const checkLogin = () => {
@@ -27,6 +28,8 @@ export const Navbar = () => {
       return;
     }
   };
+
+  //Logging out logic
 
   const logout = () => {
     localStorage.removeItem("loginWyzrUser");

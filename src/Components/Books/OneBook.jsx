@@ -1,19 +1,22 @@
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+//Handling one book data over here
+
 export const OneBook = () => {
-  const { id } = useParams();
-  const [book, setBook] = useState(null);
-  const [isLoading, setLoading] = useState(true);
+  const { id } = useParams(); //Getting id in params
+  const [book, setBook] = useState(null); // current book state
+  const [isLoading, setLoading] = useState(true); // loading until book isn't available fully
 
   useEffect(() => {
-    getData();
+    getData(); // it runs whever user lands for once automatically
   }, []);
 
   //vattsal key --> AIzaSyB6j1H1_1Qhpg-bGxi08tAb9lYvLLWHE6c
   //photogreen key --> AIzaSyCuw9lfF2rhTB6BitDbpcZLIVUEQ3zD-0w
 
+  //Fetching and mounting the data
   const getData = () => {
     fetch(
       `https://www.googleapis.com/books/v1/volumes/${id}?key=AIzaSyB6j1H1_1Qhpg-bGxi08tAb9lYvLLWHE6c`
@@ -38,6 +41,7 @@ export const OneBook = () => {
       });
   };
 
+  //Conditional rendering on basis of loading status...
   return isLoading == true ? (
     <div>Loading...</div>
   ) : (

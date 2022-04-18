@@ -4,6 +4,9 @@ import { Home } from "../Home/Home";
 import { Navbar } from "../Navbar/Navbar";
 import { Search } from "../Search/Search";
 
+//Path and routes info also check for passed components
+//Navbar is available on all pages
+
 export const AllRoutes = () => {
   return (
     <>

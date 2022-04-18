@@ -7,6 +7,10 @@ import { Home } from "../Home/Home";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+//Saving the key to DB
+//Api call
+//Redux // All books component Reused
+
 export const Search = () => {
   //Styled Components
   const SearchBooksDiv = styled.div`
@@ -27,8 +31,9 @@ export const Search = () => {
   const [key, setKey] = useState(null);
   const [user, setUser] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //Redux dispatch
 
+  //Getting data from current redux store state
   const { searchResults } = useSelector((store) => store.searchResults);
 
   useEffect(() => {
@@ -43,10 +48,9 @@ export const Search = () => {
     //if available then change set login status to true
     if (!userData.accessToken) {
       alert("Please Login First");
-      navigate("/");
+      navigate("/"); // if user not logged in then redirected to home
     } else {
-      setUser(true);
-      // console.log("Token available");
+      setUser(true); // console.log("Token available");
     }
   };
 
@@ -68,19 +72,12 @@ export const Search = () => {
           }
         )
         .then((res) => {
-          // console.log(res.data);
-          // keyId = res.data.result._id;
           localStorage.setItem(
             "wzrCurUserKey",
             JSON.stringify(res.data.result._id)
           );
-
-          // setTimeout(() => saveUserTerm(), 3000);
         })
         .catch((err) => console.log("err", err));
-      // console.log("user available", key);
-
-      // console.log(key);
     }
   };
 

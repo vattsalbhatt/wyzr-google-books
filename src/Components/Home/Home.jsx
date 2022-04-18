@@ -5,6 +5,10 @@ import styled from "styled-components";
 import axios from "axios";
 // import { find } from "../../../../wyzr-google-backend/src/models/user.model";
 
+//Google Login (conditional)
+//Displaying random data
+//create user api call
+
 export const Home = () => {
   const [user, setUser] = useState(false);
   const [booksArr, setBooksArr] = useState([]);
@@ -42,6 +46,8 @@ export const Home = () => {
     }
   `;
 
+  //Creating a user with help of local storage..
+
   const createUser = () => {
     const userData = JSON.parse(localStorage.getItem("loginWyzrUser"));
 
@@ -65,7 +71,7 @@ export const Home = () => {
     }
   };
 
-  //Check Login Function
+  //Check Login Function  // If user is available then change the state to Logged in..
   const checkLogin = () => {
     //get local user Data and change login status
     const userData = JSON.parse(localStorage.getItem("loginWyzrUser")) || "";
@@ -81,6 +87,7 @@ export const Home = () => {
   //vattsal key --> AIzaSyB6j1H1_1Qhpg-bGxi08tAb9lYvLLWHE6c
   //photogreen key --> AIzaSyCuw9lfF2rhTB6BitDbpcZLIVUEQ3zD-0w
 
+  //Getting random books
   const getData = () => {
     fetch(
       `https://www.googleapis.com/books/v1/volumes?q=:keyes&key=AIzaSyB6j1H1_1Qhpg-bGxi08tAb9lYvLLWHE6c`
@@ -105,10 +112,12 @@ export const Home = () => {
       });
   };
 
+  //Google failure
   const handleFailure = (result) => {
     alert(result);
   };
 
+  //google success // saving into localstorage
   const handleLogin = (googleData) => {
     const loginWyzrUser = JSON.parse(localStorage.getItem("loginWyzrUser"));
     if (!loginWyzrUser) {
@@ -120,6 +129,7 @@ export const Home = () => {
     window.location.reload();
   };
 
+  //Conditional rendering ...
   return user === false ? (
     isLoading == true ? (
       <h2>Loading...</h2>
@@ -159,6 +169,8 @@ export const Home = () => {
     <div>
       {/* {findUser()} */}
       <br />
+
+      {/* Impoting a All books components, Reusabilty */}
       <BooksDiv>
         {booksArr.map((el) => (
           <AllBooks
